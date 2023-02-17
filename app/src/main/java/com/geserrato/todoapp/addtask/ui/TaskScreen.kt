@@ -1,11 +1,9 @@
 package com.geserrato.todoapp.addtask.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -87,7 +85,7 @@ fun FabDialog(taskViewModel: TaskViewModel, modifier: Modifier) {
 
 @Composable
 fun AddTaskDialog(show: Boolean, onDismiss: () -> Unit, onTaskAdded: (String) -> Unit) {
-    var myTask by remember { mutableStateOf("") }
+    var myTask: String by remember { mutableStateOf("") }
     if (show) {
         Dialog(onDismissRequest = { onDismiss() }) {
             Column(
